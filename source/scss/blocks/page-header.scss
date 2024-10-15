@@ -213,6 +213,7 @@
   }
 
   li {
+    position: relative;
     margin-left: 4rem;
 
     @media (min-width: $stop-scaling) {
@@ -236,10 +237,28 @@
     }
   }
 
+  li:before {
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: $c-purple;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transition: width 0.3s ease;
+  }
+
+  li:hover:before {
+    width: 100%;
+    right: auto;
+    left: 0;
+  }
+
   a {
     position: relative;
     display: block;
     color: inherit;
+    transition: color 0.3s ease;
     padding: 0 0.5em 0.5em;
 
     &::after {
